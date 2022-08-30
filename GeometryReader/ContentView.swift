@@ -9,8 +9,53 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        VStack(spacing: 0.0) {
+            
+            GeometryReader {
+                g in
+                
+                ZStack {
+                    
+                    Rectangle()
+                        .foregroundColor(Color(hue: 0.285, saturation: 0.81, brightness: 0.493))
+                    
+                    Rectangle()
+                        .foregroundColor(.red)
+                        .frame(width: 2*(g.size.width)/3, height: g.size.height/4, alignment: .center)
+                        .onTapGesture {
+                            print("x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
+                            print("local x: \(g.frame(in: .local).minX), y: \(g.frame(in: .local).minY)")
+                        }
+                }
+            }
+            
+            GeometryReader {
+                g in
+                
+                VStack {
+                    
+                    HStack(spacing: 0.0) {
+                        Rectangle()
+                            .foregroundColor(.purple)
+                            .frame(width: g.size.width/2, height: g.size.height, alignment: .center)
+                            .onTapGesture {
+                                print("x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
+                                print("local x: \(g.frame(in: .local).minX), y: \(g.frame(in: .local).minY)")
+                            }
+                        
+                        Rectangle()
+                            .foregroundColor(.orange)
+                            .frame(width: g.size.width/2, height: g.size.height, alignment: .center)
+                            .onTapGesture {
+                                print("x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
+                                print("local x: \(g.frame(in: .local).minX), y: \(g.frame(in: .local).minY)")
+                            }
+                    }
+                }
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 
