@@ -19,12 +19,19 @@ struct ContentView: View {
                     
                     Rectangle()
                         .foregroundColor(Color(hue: 0.285, saturation: 0.81, brightness: 0.493))
+                        .onTapGesture {
+                            print("Green rectangle's info")
+                            print("width : \(g.size.width), height : \(g.size.height)")
+                        }
                     
                     Rectangle()
                         .foregroundColor(.red)
                         .frame(width: 2*(g.size.width)/3, height: g.size.height/4, alignment: .center)
                         .onTapGesture {
-                            print("x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
+                            
+                            print("Red rectangle's info")
+                            print("width : \(2*(g.size.width)/3), height : \(g.size.height/4)")
+                            print("global x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
                             print("local x: \(g.frame(in: .local).minX), y: \(g.frame(in: .local).minY)")
                         }
                 }
@@ -40,7 +47,11 @@ struct ContentView: View {
                             .foregroundColor(.purple)
                             .frame(width: g.size.width/2, height: g.size.height, alignment: .center)
                             .onTapGesture {
-                                print("x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
+                                
+                                print("Purple rectangle's info")
+                                print("width : \((g.size.width)/2), height : \(g.size.height)")
+                                
+                                print("global x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
                                 print("local x: \(g.frame(in: .local).minX), y: \(g.frame(in: .local).minY)")
                             }
                         
@@ -48,7 +59,11 @@ struct ContentView: View {
                             .foregroundColor(.orange)
                             .frame(width: g.size.width/2, height: g.size.height, alignment: .center)
                             .onTapGesture {
-                                print("x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
+                                
+                                print("Orange rectangle's info")
+                                print("width : \((g.size.width)/2), height : \(g.size.height)")
+                                
+                                print("global x: \(g.frame(in: .global).minX), y: \(g.frame(in: .global).minY)")
                                 print("local x: \(g.frame(in: .local).minX), y: \(g.frame(in: .local).minY)")
                             }
                     }
